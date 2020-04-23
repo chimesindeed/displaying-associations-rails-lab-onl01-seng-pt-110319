@@ -9,10 +9,12 @@ class ArtistsController < ApplicationController
 
   def new
     @artist = Artist.new
+    @artist.songs.build
   end
 
   def create
     @artist = Artist.new(artist_params)
+    @artist.songs.build
 
     if @artist.save
       redirect_to @artist
